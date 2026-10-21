@@ -47,8 +47,12 @@ a first-class state**, not an I/O error discovered at copy time.
 and a decision record are written. Nothing is built, and nothing in here has
 met a filesystem.
 
-Two documents matter most to anyone picking this up:
+Three documents matter most to anyone picking this up:
 
+- **[docs/12-plan.md](docs/12-plan.md)** — **start here.** The ordered plan
+  of attack, four spec repairs to make before any code, and one finding: the
+  mac bridge's iCloud path in [04](docs/04-platforms.md) is probably wrong,
+  which may mean the mac bridge has no placeholder detection at all.
 - **[ROADMAP.md](ROADMAP.md)** — M0 is a measurement, not a build step, and
   it can end the project in favour of `unison`. That is a real possible
   outcome and it is deliberately the cheapest thing to reach.
