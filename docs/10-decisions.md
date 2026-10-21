@@ -79,8 +79,8 @@ that would revisit it is a month of logs showing how often the row fires.
 **Rejected sqlite** because the only write is "replace the whole snapshot,
 once per scan, after the actions already landed". Transactions, indices and
 incremental updates all solve problems this access pattern does not have, and
-a sqlite file inside a cloud-synced tree is its own hazard
-([03](03-safety.md) excludes `.zk/notebook.db` for exactly that reason).
+a sqlite file inside a cloud-synced tree is its own hazard, which is why
+[03](03-safety.md#excludes-that-are-not-optional) refuses to sync one.
 
 **Revisit at ~10^5 entries per pair**, which a notes vault will not reach.
 
@@ -190,7 +190,7 @@ read crosses DrvFs or FUSE. xsync replaces the link with a real directory and
 a pair.
 
 **Chosen because the cloud mount is the slowest filesystem on each of these
-boxes, and it was serving every tool.** nvim, zk, ripgrep and git now work
+boxes, and it was serving every tool.** nvim, ripgrep and git now work
 against ext4 or APFS; the mount is touched only by the one process written on
 the assumption that it is slow and occasionally absent.
 

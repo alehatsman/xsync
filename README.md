@@ -5,7 +5,7 @@ a cloud client that moves files under you.
 
 ```text
    iPhone                                            x1 · WSL · mini_pc
-   Obsidian                                               nvim + zk
+   Obsidian                                                 nvim
       │                                                       │
       ▼                                                       ▼
  ┌──────────┐                                          ┌──────────────┐

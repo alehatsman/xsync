@@ -94,15 +94,18 @@ defaults and the reason is specific in each case:
 | pattern | why |
 |---|---|
 | `.obsidian/workspace*.json` | rewritten on every pane focus on every device; syncing it means a permanent conflict and a vault that reopens on the wrong note |
-| `.zk/notebook.db` | a rebuildable sqlite index. `zk index` regenerates it. A sqlite file copied mid-write is a corrupt sqlite file |
 | `.obsidian/plugins/*/data.json` | per-device plugin state, same shape of problem |
 | `*.gdoc` `*.gsheet` `*.gslides` | Drive shortcuts, not documents. Zero-byte JSON pointers |
 | `.DS_Store`, `Icon\r`, `desktop.ini`, `Thumbs.db` | per-platform noise |
 | `~$*`, `*.tmp`, `*.swp`, `.#*` | in-flight editor state |
 | `.xsync/**` | xsync's own bookkeeping. Hardcoded, not overridable |
 
-The first two are the ones that would have bitten within a day. They are the
-reason this table exists as a shipped default rather than as advice.
+The first is the one that would have bitten within a day. It is the reason
+this table exists as a shipped default rather than as advice.
+
+Any rebuildable index a tool drops inside the vault belongs here too — a
+sqlite file copied mid-write is a corrupt sqlite file, and a regenerable one
+is not worth syncing even when it is intact. Add it when the tool arrives.
 
 ## What is deliberately not guarded
 

@@ -122,11 +122,11 @@ touches iCloud at all.
 
 `components/notes` currently makes `~/notes` a symlink into the cloud mount,
 so every read and write goes through DrvFs or FUSE. On WSL that means no
-inotify, slow stat, and editor plugins that poll. On x1 it means every `zk`
-query is a network call into an rclone mount.
+inotify, slow stat, and editor plugins that poll. On x1 it means every
+search across the vault is a network call into an rclone mount.
 
 An xsync pair replaces the link with **a real directory on ext4**, reconciled
-against the mount on a timer. nvim, zk, ripgrep and git all get a local
+against the mount on a timer. nvim, ripgrep and git all get a local
 filesystem; the cloud mount is touched only by xsync, which is the only
 process that expects it to be slow.
 

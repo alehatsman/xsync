@@ -50,7 +50,6 @@ trash_retention   = "30d"
 exclude = [
   ".obsidian/workspace*.json",
   ".obsidian/plugins/*/data.json",
-  ".zk/notebook.db",
 ]
 
 [[pair]]
